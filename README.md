@@ -12,7 +12,8 @@ performance. Our approach outperforms existing published algorithms.
 The project also discusses specifically class imbalance, attribute creation (e.g. technical and sentiment analysis),
 dimensionality reduction, and model performance due to release of news and time of day. Popular methods for dealing with each are discussed
 
-#**Working Process in short**
+**Working Process in short**
+
 This project has been divided into 6 parts and divided into modules each module has its own result which is being used 
 for further development. In first two parts are based on Eda first part is for calculating variables and second part is
 used for Visualizing data using time series.Next two part is of modeling in first part we predict close price and in second
