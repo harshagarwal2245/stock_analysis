@@ -1,4 +1,4 @@
-#**About** 
+**About** 
 
 This project explores predictability in the market and then designs a decision support framework that can be used by traders 
 to provide suggested indications of future stock price direction along with an associated probability of making that move.
