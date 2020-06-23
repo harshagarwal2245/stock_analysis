@@ -1,4 +1,4 @@
-#**Abstract** 
+#**About** 
 
 This project explores predictability in the market and then designs a decision support framework that can be used by traders 
 to provide suggested indications of future stock price direction along with an associated probability of making that move.
@@ -11,3 +11,10 @@ My project takes a different approach to learning with drifting concepts, which 
 performance. Our approach outperforms existing published algorithms.
 The project also discusses specifically class imbalance, attribute creation (e.g. technical and sentiment analysis),
 dimensionality reduction, and model performance due to release of news and time of day. Popular methods for dealing with each are discussed
+
+#**Working Process in short**
+This project has been divided into 6 parts and divided into modules each module has its own result which is being used 
+for further development. In first two parts are based on Eda first part is for calculating variables and second part is
+used for Visualizing data using time series.Next two part is of modeling in first part we predict close price and in second
+part we created model that will classify trade calls. In next two parts we created some visualizations like portfolio and
+Monte carlo stimulation.
