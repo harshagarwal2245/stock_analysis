@@ -1,0 +1,73 @@
+**Scenario:**
+
+You've been called in to help improve the performance profile of an application that provides a dashboard and reporting information of cell tower quality service metrics.
+
+This application collects a set of metric information sent directly from cell towers.
+
+Each cell tower emits a message similar to the following, in 1 minute intervals:
+
+```
+{
+  "date": "2019-05-01T17:23:43.042Z",
+  "celltower_id": "BBA87930-4A72-4D77-B238-2BA5899C9BEC",
+  "coordinates": [
+    -8.5837984085083,
+    41.161823159286136
+  ],
+  "established_calls": 50013,
+  "dropped_calls": 1231,
+  "data_in_gb": 142,
+  "data_out_gb": 481
+}
+```
+
+The information sent in each message corresponds to:
+
+- the current longitude and latitude of the cell tower - coordinates
+- a unique identifier of the cell tower - celltower_id
+- the date of the measurement - date
+- the following accumulated counters, accumulated since last reboot:
+
+    - the number of established cell phone calls - established_calls
+    - the number of dropped cell phone calls - dropped_calls
+    - the amount of inbound data traffic - data_in_gb
+    - the amount of outbound data traffic - data_out_gb
+
+This system needs to support the following operational requirements:
+
+- Be capable of storing measurements for at least 500 cell towers
+- Be able to produce cell tower cumulative reports on one or all four of the accumulated counters, with the following specifications:
+    - Each of these reports consists of a plotted graph of the last 24 hours for each metric, with a granularity of 5 minutes
+    - The 95 percentile request latency expected for this report is 100ms
+
+**Current Implementation:**
+
+The current implementation is to store documents that are very similar to the emitted messages, having all messages stored in a measurements collection:
+
+```
+db.measurements.find({"cell_tower.id": "BBA87930-4A72-4D77-B238-2BA5899C9BEC"})
+{
+  "_id": ObjectId("5cd3587395f8fbc3fab3092e"),
+  "date_received": ISODate("2019-05-01T17:24:00.000Z"),
+  "message_date": ISODate("2019-05-01T17:23:43.042Z"),
+  "cell_tower": {
+    "location": {
+      "type": "Point",
+      "coordinates": [
+          -8.5837984085083,
+           41.161823159286136
+      ]
+    },
+    "id": "BBA87930-4A72-4D77-B238-2BA5899C9BEC"
+  },
+  "established_calls": 50013,
+  "dropped_calls": 1231,
+  "data_in_gb": 142,
+  "data_out_gb": 481
+}
+...
+```
+
+This implementation is expected to fill out the database servers disk space in one month and there is no budget left for hardware improvements in the next 12 months.
+
+The current implementation is unable to produce
