@@ -15,7 +15,16 @@ dimensionality reduction, and model performance due to release of news and time 
 **Working Process in short**
 
 This project has been divided into 6 parts and divided into modules each module has its own result which is being used 
-for further development. In first two parts are based on Eda first part is for calculating variables and second part is
-used for Visualizing data using time series.Next two part is of modeling in first part we predict close price and in second
-part we created model that will classify trade calls. In next two parts we created some visualizations like portfolio and
-Monte carlo stimulation.
+for further development. In first two parts are based on Eda first part is for calculating various indicators like Vwap, trends and second part is
+used for Visualizing data using time series along with bollinger bands and other technical indicators like moving average. Next two part is of 
+modeling in first part we predict close price by using linear regression and some other variables are considered it also uses CPAT theory which takes
+beta values and in second part we created model that will classify trade calls i.e. to hold to buy or to sort calls main indicator used for these is bollinger bands and moving average after training on machine learning model it had given 79% accuracy and other stocks of 50+ accurate which is very good. In next two parts we used other
+indicators like sharpe ratio to select which stock should be included in your portfiolo or not and recommend the best and similar stocks with help of volatility and
+standard deviation. Hence completing modern portfolio stratergy
+
+**Achivement**
+1. Investors who had basic idea can use this to get technical indicators and identify trends
+2. Who are new to stock market analysis can use this to make trade calls
+3. Investors can predict close price of stock and hence decide which stock to sell
+4. Investors can used this project to decide weather to include stock in portfolio or not
+5. To get recommendation of best stocks from market in 5 seconds
